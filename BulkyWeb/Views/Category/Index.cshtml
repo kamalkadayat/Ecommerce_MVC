@@ -1,1 +1,24 @@
-﻿<h1>Hello! This is a Category page</h1>
+﻿@model List<Category>
+
+<h1>Hello! This is a Category page</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Display Order
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model.OrderBy(u=>u.DisplayName))
+        {
+            <tr>
+                <td>@obj.Name</td>
+                <td>@obj.DisplayName</td>
+        </tr>
+        }
+    </tbody>
+</table>
