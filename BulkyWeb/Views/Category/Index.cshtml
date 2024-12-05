@@ -1,4 +1,9 @@
 ﻿@model List<Category>
+
+@if (TempData["success"] != null)
+{
+    <p class="text-success">@TempData["success"]</p>
+}
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradient mt-0 py-3">
         <div class="row">
