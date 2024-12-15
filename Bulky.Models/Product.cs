@@ -15,7 +15,7 @@ namespace Bulky.Models
         public string Title { get; set; }
         public string Description { get; set; }
         [Required]
-        public string IBSN { get; set; }
+        public string ISBN { get; set; }
         [Required]
         public string Author { get; set; }
         [Required]
@@ -25,11 +25,11 @@ namespace Bulky.Models
         [Required]
         [Display(Name = "Price for 1-50")]
         [Range(1, 1000)]
-        public double price { get; set; }
+        public double Price { get; set; }
         [Required]
         [Display(Name = "Price for 50+")]
         [Range(1, 1000)]
-        public double price50 { get; set; }
+        public double Price50 { get; set; }
         [Required]
         [Display(Name = "Price for 100+")]
         [Range(1, 1000)]
