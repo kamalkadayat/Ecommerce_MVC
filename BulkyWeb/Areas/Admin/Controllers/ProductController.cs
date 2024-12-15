@@ -20,15 +20,16 @@ namespace BulkyWeb.Areas.Admin.Controllers
         public IActionResult Index()
         {
             List<Product> objCategoryList = _unitOfWork.Product.GetAll().ToList();
+            return View(objCategoryList);
+        }
+        public IActionResult Create()
+        {
             IEnumerable<SelectListItem> CategoryList = _unitOfWork.Category.GetAll().Select(u => new SelectListItem
             {
                 Text = u.Name,
                 Value = u.Id.ToString()
             });
-            return View(objCategoryList);
-        }
-        public IActionResult Create()
-        {
+            ViewBag.CategoryList = CategoryList;
             return View();
         }
         [HttpPost]
