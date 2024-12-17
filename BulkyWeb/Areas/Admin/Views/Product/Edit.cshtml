@@ -11,43 +11,44 @@
     <div class="card-body p-4">
         <form method="post" class="row">
             <div class="border p-3 mt-4">
-                <div class="form-floating py-2 col-12">
+                <div class="row">
+                <div class="form-floating py-2 col-6">
                     <input asp-for="Title" type="text" class="form-control border-0 shadow" />
                     <label asp-for="Title" class="ms-2"></label>
                     <span asp-validation-for="Title" class="text-danger"></span>
 
                 </div>
-                <div class="form-floating py-2 col-12">
+                <div class="form-floating py-2 col-6">
                     <textarea asp-for="Description" class="form-control border-0 shadow" > </textarea>
                     <label asp-for="Description" class="ms-2"></label>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
-                <div class="form-floating py-2 col-12">
+                <div class="form-floating py-2 col-6">
                     <input asp-for="ISBN" class="form-control border-0 shadow" />
                     <label asp-for="ISBN" class="ms-2"></label>
                     <span asp-validation-for="ISBN" class="text-danger"></span>
                 </div>
-                <div class="form-floating py-2 col-12">
+                <div class="form-floating py-2 col-6">
                     <input asp-for="Author" class="form-control border-0 shadow" />
                     <label asp-for="Author" class="ms-2"></label>
                     <span asp-validation-for="Author" class="text-danger"></span>
                 </div>
-                <div class="form-floating py-2 col-12">
+                <div class="form-floating py-2 col-6">
                     <input asp-for="ListPrice" class="form-control border-0 shadow" />
                     <label asp-for="ListPrice" class="ms-2"></label>
                     <span asp-validation-for="ListPrice" class="text-danger"></span>
                 </div>
-                <div class="form-floating py-2 col-12">
+                <div class="form-floating py-2 col-6">
                     <input asp-for="Price" class="form-control border-0 shadow" />
                     <label asp-for="Price" class="ms-2"></label>
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
-                <div class="form-floating py-2 col-12">
+                <div class="form-floating py-2 col-6">
                     <input asp-for="Price50" class="form-control border-0 shadow" />
                     <label asp-for="Price50" class="ms-2"></label>
                     <span asp-validation-for="Price50" class="text-danger"></span>
                 </div>
-                <div class="form-floating py-2 col-12">
+                <div class="form-floating py-2 col-6">
                     <input asp-for="Price100" class="form-control border-0 shadow" />
                     <label asp-for="Price100" class="ms-2"></label>
                     <span asp-validation-for="Price100" class="text-danger"></span>
@@ -60,6 +61,7 @@
                     <div class="col-6 col-md-3">
                         <a asp-controller="Product" asp-action="Index" class="btn btn-warning form-control">Go Back</a>
                     </div>
+                </div>
                 </div>
             </div>
         </form>
