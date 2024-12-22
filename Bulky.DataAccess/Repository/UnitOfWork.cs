@@ -21,7 +21,15 @@ namespace Bulky.DataAccess.Repository
         }
         public void Save()
         {
-            _db.SaveChanges();
+            try
+            {
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                throw; 
+            }
         }
     }
 }
