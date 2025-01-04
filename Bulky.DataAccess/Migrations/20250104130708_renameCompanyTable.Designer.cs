@@ -4,6 +4,7 @@ using Bulky.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bulky.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250104130708_renameCompanyTable")]
+    partial class renameCompanyTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,38 +96,6 @@ namespace Bulky.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            City = "Tech city",
-                            Name = "SmartSoft",
-                            PhoneNumber = "9812345678",
-                            PostalCode = "12123",
-                            State = "Bagmati",
-                            StreetAddress = "123 Tech St"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            City = "ktm",
-                            Name = "F1 Soft",
-                            PhoneNumber = "9812453627",
-                            PostalCode = "2345",
-                            State = "Bagmati",
-                            StreetAddress = "123 Tech St"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            City = "Lalitpur",
-                            Name = "Java Tech",
-                            PhoneNumber = "9804653242",
-                            PostalCode = "45362",
-                            State = "Bagmati",
-                            StreetAddress = "154 javaLine"
-                        });
                 });
 
             modelBuilder.Entity("Bulky.Models.Product", b =>

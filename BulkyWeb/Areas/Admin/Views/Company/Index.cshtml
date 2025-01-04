@@ -1,0 +1,74 @@
+﻿
+<partial name="_Notification" />
+<div class="card shadow border-0 " style="margin-bottom:70px !important;">
+    <div class="card-header bg-secondary bg-gradient mt-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-primary">Product List</h2>
+            </div>
+        </div>
+      
+    </div>
+    <div class="col-12 text-end mt-2">
+        <a asp-controller="Company" asp-action="Upsert" class="btn btn-success">
+            <i class="bi bi-plus-circle-fill"></i>  Create New Company
+        </a>
+    </div>
+    <div class="card-body p-2 ">
+        <table id="tblData" class="table table-bordered table-striped" style="width:100%;">
+            <thead>
+                <tr>
+                    <th>
+                        Company Name
+                    </th>
+               @*      <th>
+                        Description
+                    </th> *@
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        City
+                    </th>
+                     <th>
+                        State
+                    </th>
+                    <th>
+                        Postal Code
+                    </th>
+                    <th>
+                        Phone Number
+                    </th>
+                </tr>
+            </thead>
+ @*            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Title</td>
+                        <td>@obj.Description</td>
+                        <td>@obj.Price</td>
+                        <td>@obj.ISBN</td>
+                        <td>@obj.Author</td>
+                        <td>@obj.Category.Name</td>
+                        <td>
+                            <div class="w-75 btn-group" role="group">
+                                <a asp-controller="Product" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-primary mx-2">
+                                    <i class="bi bi-pencil-square"></i>Edit
+                                </a>
+                                <a asp-controller="Product" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                                    <i class="bi bi-trash"></i>Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody> *@
+        </table>
+    </div>
+</div>
+       
+
+@section Scripts{
+    <script src="~/js/Company.js"></script>
+}
