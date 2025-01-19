@@ -2,12 +2,12 @@
 
 <form method="post">
     <input hidden asp-for="ProductId" />
-        <div class="card shadow border-0 mt-4 mb-4">
-        <div class="card-header bg-secondary bg-gradient text-light py-4">
+    <div class="card shadow border-0 mt-4 mb-4" style="margin-bottom:70px !important;">
+        <div class="card-header  bg-warning text-light py-4">
             <div class="row">
                 <div class="col-12 text-center">
                     <h3 class="text-white text-uppercase">@Model.Product.Title</h3>
-                    <p class="text-white-50 fw-semibold mb-0">@Model.Product.Author</p>
+                    @* <p class="text-white-50 fw-semibold mb-0">@Model.Product.Author</p> *@
                 </div>
             </div>
         </div>
