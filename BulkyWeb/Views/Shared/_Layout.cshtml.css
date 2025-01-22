@@ -41,8 +41,50 @@ button.accept-policy {
 
 .footer {
   position: absolute;
-  bottom: 0;
+ /* bottom: 0;*/
   width: 100%;
   white-space: nowrap;
-  line-height: 60px;
+  /*line-height: 60px;*/
+}
+.footer {
+    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    color: #fff;
+    font-size: 1rem;
+}
+
+    .footer .fw-light {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    .footer ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .footer a {
+        transition: color 0.3s ease;
+    }
+
+        .footer a:hover {
+            color: #e74c3c;
+        }
+
+    .footer ul.d-flex li {
+        display: inline-block;
+    }
+
+    .footer i {
+        transition: transform 0.3s ease;
+    }
+
+        .footer i:hover {
+            transform: scale(1.2);
+        }
+
+@media (max-width: 768px) {
+    .footer .fw-bold {
+        font-size: 1rem;
+    }
 }

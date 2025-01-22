@@ -14,57 +14,68 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
 
+
+
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm  bg-warning border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KurlStop</a>
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="/">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="/images/logo1.png" alt="Logo" class="me-2" style="height: 50px;">
+                        <span class="fw-bold text-dark">KurlStop</span></a>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link " asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">Order Management</a>
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Order" asp-action="Index">Order Management</a>
                         </li>
 
                       @if(User.IsInRole(SD.Role_Admin))
                         { 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Content Management
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item">
+                                    <li class="nav-item ">
                                     <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
                                 </li>
-                                <li class="nav-item">
+                                    <li class="nav-item text-dark">
                                     <a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a>
                                 </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item text-dark">
                                         <a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Company</a>
                                     </li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li class="nav-item">
+                                    <li class="nav-item text-dark">
                                         <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Create User</a>
                                  </li>
                             </ul>
                         </li>
                        }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="AboutUs" asp-action="Index">About Us</a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="Customer" asp-controller="Cart" asp-action="Index">
+                        <li class="nav-item ">
+                            <a class="nav-link text-dark" asp-area="Customer" asp-controller="Cart" asp-action="Index">
                                   @await Component.InvokeAsync("ShoppingCart")
                                 </a>
                             </li>
                                         
                     </ul>
-                    <partial name="_LoginPartial"/>
+                    <div class="d-flex">
+                        <partial name="_LoginPartial" />
+                    </div>
                 </div>
             </div>
         </nav>
@@ -75,11 +86,64 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted bg-warning" style="text-align:center;">
-        <div class="container" style="color:#fff;">
-            &copy; 2024 -  Developed by <i class="bi bi-heart-fill"></i>  Kamal Kadayat
+    <footer class="footer bg-warning text-white text-center py-5">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <p class="fst-italic fw-light">"Empowering natural beauty, one curl at a time."</p>
+                    <p>
+                        &copy; 2024 - Developed with
+                        <i class="bi bi-heart-fill text-danger"></i> by
+                        <strong>Kamal Kadayat</strong>
+                    </p>
+                    <img src="/images/logo1.png" width="20%" />
+                </div>
+
+                <!-- Contact Section -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="fw-bold">Contact Us</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <strong>Email:</strong>
+                            <a href="mailto:contact@kurlstop.com" class="text-white text-decoration-underline">contact@kurlstop.com</a>
+                        </li>
+                        <li>
+                            <strong>Phone:</strong> +977-123456789
+                        </li>
+                        <li>
+                            <strong>Location:</strong> Patandhoka, Lalitpur
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Section -->
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Follow Us</h5>
+                    <ul class="list-unstyled d-flex justify-content-center gap-3 mb-0">
+                        <li>
+                            <a href="https://www.facebook.com" target="_blank" class="text-white">
+                                <i class="bi bi-facebook fs-4"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com" target="_blank" class="text-white">
+                                <i class="bi bi-instagram fs-4"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.twitter.com" target="_blank" class="text-white">
+                                <i class="bi bi-twitter fs-4"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
+
+
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -88,6 +152,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
     @await RenderSectionAsync("Scripts", required: false)

@@ -1,6 +1,41 @@
 ﻿@model IEnumerable<Product>
 @* @Html.Partial("_Carousel") *@
+
+
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+
+<div class="banner_section layout_padding mb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="banner_title">Welcome to Kurlstop, where we celebrate every hair journey!</h1>
+                <p class="banner_text">
+                    At Kurlstop, we understand the unique journey of discovering and embracing your natural hair. Growing up in a Nepali household, our founder faced challenges with her hair. Like many young women, she struggled with straighteners, longing for sleek, straight locks that she believed were the ideal as everyone around her did.
+                </p>
+                <p class="banner_text">
+                    However, her journey of self-discovery led her to embrace her natural curls, realizing that true beauty lies in authenticity. Kurlstop aims to empower young women to love and care for their natural hair. Whether your hair is curly, straight, or somewhere in between, we're here to provide products and support to help you feel confident and beautiful.
+                </p>
+                <p class="banner_text">
+                    Discover the joy of embracing your natural beauty with Kurlstop. Because every curl and wave deserves to be cherished and nourished, helping you shine with confidence every day.
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="@Url.Content("~/images/founder.png")" alt="Founder" class="img-fluid" style="max-width: 80%; border-radius: 8px;">
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container mb-4">
+    <!-- Section Title -->
+    <div class="row">
+        <div class="col-12 text-center mb-4 mt-4">
+            <h2 class="section-title text-uppercase text-dark opacity-75">Our Products</h2>
+        </div>
+    </div>
+
     <div class="row pb-3">
         @foreach(var product in Model)
         {
@@ -11,7 +46,7 @@
                         <div class="card-body pb-0">
                             <div class="pl-1">
                                 <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
-                                <p class="card-title text-warning text-center">by <b>@product.Author</b></p>
+                                <p class="card-title text-warning text-center"> <b>@product.Category.Name</b></p>
                             </div>
                             <div class="pl-1">
                                 <p class="text-dark text-opacity-75 text-center mb-0">
@@ -43,6 +78,6 @@
 
             </div>
         }
-
     </div>
 </div>
+
