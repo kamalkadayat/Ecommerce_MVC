@@ -11,7 +11,7 @@ $(document).ready(function () {
             /*  { data: 'description' },*/
             { data: 'isbn' },
             { data: 'author' },
-            { data: 'listPrice' },
+            { data: 'price' },
             { data: 'category.name' },
             {
                 data: 'id',

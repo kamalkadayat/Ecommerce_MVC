@@ -4,13 +4,16 @@
 
     @{
         ViewData["Title"] = "Home Page";
+    var culture = new System.Globalization.CultureInfo("sd-Deva-NP"); // Use "en-US" for USD
     }
+
+<link href="~/css/style.css" rel="stylesheet" />
 
 <div class="banner_section layout_padding mb-4">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-8">
-                <h1 class="banner_title">Welcome to Kurlstop, where we celebrate every hair journey!</h1>
+                <h1  class="banner_title text-uppercase text-dark opacity-75 mb-4">Welcome to Kurlstop!</h1>
                 <p class="banner_text">
                     At Kurlstop, we understand the unique journey of discovering and embracing your natural hair. Growing up in a Nepali household, our founder faced challenges with her hair. Like many young women, she struggled with straighteners, longing for sleek, straight locks that she believed were the ideal as everyone around her did.
                 </p>
@@ -47,8 +50,22 @@
                             <div class="pl-1">
                                 <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
                                 <p class="card-title text-warning text-center"> <b>@product.Category.Name</b></p>
+                              
                             </div>
-                            <div class="pl-1">
+                            <div class="mb-2">
+                                <p class="text-dark text-opacity-75 text-center mb-0">
+                                    <span class="text-decoration-line-through">
+                                        @product.ListPrice.ToString("C", culture)
+                                    </span>
+                                </p>
+                                <p class="text-dark text-opacity-75 text-center mb-0 ">
+                                  
+                                    <span>
+                                        @product.Price.ToString("C", culture)
+                                    </span>
+                                </p>
+                            </div>
+                          @*   <div class="pl-1">
                                 <p class="text-dark text-opacity-75 text-center mb-0">
                                     List Price:
                                     <span class="text-decoration-line-through">
@@ -63,7 +80,7 @@
                                     @product.Price100.ToString("c")
                                 </span>
                             </p>
-                        </div>
+                        </div> *@
                         </div>
                         <div>
                             <a asp-action="Details"
@@ -79,5 +96,106 @@
             </div>
         }
     </div>
+    <!-- services section start -->
+    <div class="services_section py-5 bg-light mb-4">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-md-12">
+                    <h1 class="services_taital text-uppercase text-dark opacity-75">Our Kurlstop Services</h1>
+                    <p class="services_text text-muted fs-5">Your go-to platform for premium natural hair care products, designed to empower your hair journey</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="services_box bg-white p-4 shadow-sm rounded">
+                        <div class="icon_img text-center mb-3">
+                            <img src="images/icon/shopping-cart.png" alt="Shop Icon" class="img-fluid" style="max-width: 60px;">
+                        </div>
+                        <h5 class="tasty_text text-center fw-bold mb-3">Wide Range of Products</h5>
+                        <p class="lorem_text text-muted text-center">Discover a curated selection of high-quality hair care products tailored for all hair types, from curls to waves and everything in between.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="services_box bg-white p-4 shadow-sm rounded">
+                        <div class="icon_img text-center mb-3">
+                            <img src="images/icon/fast-delivery.png" alt="Delivery Icon" class="img-fluid" style="max-width: 60px;">
+                        </div>
+                        <h5 class="tasty_text text-center fw-bold mb-3">Fast & Reliable Delivery</h5>
+                        <p class="lorem_text text-muted text-center">Enjoy quick and hassle-free delivery to your doorstep, ensuring your favorite products are always within reach.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="services_box bg-white p-4 shadow-sm rounded">
+                        <div class="icon_img text-center mb-3">
+                            <img src="images/icon/24-hours.png" alt="Support Icon" class="img-fluid" style="max-width: 60px;">
+                        </div>
+                        <h5 class="tasty_text text-center fw-bold mb-3">Excellent Customer Support</h5>
+                        <p class="lorem_text text-muted text-center">Our dedicated support team is here to assist you with any questions, making your shopping experience seamless and enjoyable.</p>
+                    </div>
+                </div>
+            </div>
+          @*   <div class="text-center mt-4">
+                <a href="#" class="btn btn-warning text-white px-4 py-2 fs-5 fw-bold">Shop Now</a>
+            </div> *@
+        </div>
+    </div>
+    <!-- services section end -->
+    <!-- Testimonial Section start -->
+
+<div class="testimonial_section layout_padding mb-5">
+    <div class="container">
+        <div class="row">
+                <div class="col-md-12  text-center mb-2 ">
+                    <h1 class=" text-dark opacity-75 mb-4">What Our Customers Say</h1>
+            </div>
+        </div>
+        <div class="testimonial_section_2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="testimonial_box">
+                        <div id="main_slider" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <p class="testimonial_text">
+                                        "Kurlstop has completely changed how I feel about my curls! Growing up, I always felt pressured to straighten my hair, but their products helped me embrace my natural texture. My curls have never looked this healthy and defined!"
+                                    </p>
+                                    <h4 class="client_name">Sita Sharma</h4>
+                                    <div class="client_img">
+                                        <img src="~/images/girl1.jpeg" alt="Sita Sharma">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <p class="testimonial_text">
+                                        "I love how Kurlstop products work for every hair type. My wavy hair now feels more nourished and manageable. Plus, their message of self-love and authenticity truly resonates with me!"
+                                    </p>
+                                    <h4 class="client_name">Anjali Thapa</h4>
+                                    <div class="client_img">
+                                        <img src="~/images/girl2.jpg" alt="Anjali Thapa">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <p class="testimonial_text">
+                                        "Thank you, Kurlstop, for helping me love my natural hair! Your products not only work wonders but also make me feel confident and beautiful. Embracing my curls has never felt so empowering."
+                                    </p>
+                                    <h4 class="client_name">Nisha Gurung</h4>
+                                    <div class="client_img">
+                                        <img src="~/images/girl3.jpg" alt="Nisha Gurung">
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+<!-- Testimonial Section End -->
 

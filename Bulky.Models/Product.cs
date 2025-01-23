@@ -19,22 +19,23 @@ namespace Bulky.Models
         [Required]
         public string ISBN { get; set; }
         [Required]
+        [Display(Name = "Type")]
         public string Author { get; set; }
         [Required]
         [Display(Name = "list Price")]
-        [Range(1, 1000)]
+        [Range(1, 10000)]
         public double ListPrice { get; set; }
         [Required]
-        [Display(Name = "Price for 1-50")]
-        [Range(1, 1000)]
+        [Display(Name = "Price")]
+        [Range(1, 10000)]
         public double Price { get; set; }
         [Required]
-        [Display(Name = "Price for 50+")]
-        [Range(1, 1000)]
+        [Display(Name = "Price for 5+")]
+        [Range(1, 10000)]
         public double Price50 { get; set; }
         [Required]
-        [Display(Name = "Price for 100+")]
-        [Range(1, 1000)]
+        [Display(Name = "Price for 10+")]
+        [Range(1, 10000)]
         public double Price100 { get; set; }
 
         public int CategoryId { get; set; }

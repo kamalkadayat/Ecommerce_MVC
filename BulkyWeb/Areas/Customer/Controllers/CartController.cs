@@ -221,7 +221,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
         }
         private double GetPriceBasedOnQuantity(ShoppingCart shoppingCart)
         {
-            if (shoppingCart.Count <= 50)
+            if (shoppingCart.Count >= 1)
             {
                 return shoppingCart.Product.Price;
             }
