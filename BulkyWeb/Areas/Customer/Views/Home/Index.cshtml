@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model HomeVM
 @* @Html.Partial("_Carousel") *@
 
 
@@ -40,7 +40,7 @@
     </div>
 
     <div class="row pb-3">
-        @foreach(var product in Model)
+        @foreach(var product in Model.Products)
         {
             <div class="col-lg-3 col-sm-6">
                 <div class="row p-2 mb-4">
@@ -155,34 +155,17 @@
                     <div class="testimonial_box">
                         <div id="main_slider" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <p class="testimonial_text">
-                                        "Kurlstop has completely changed how I feel about my curls! Growing up, I always felt pressured to straighten my hair, but their products helped me embrace my natural texture. My curls have never looked this healthy and defined!"
-                                    </p>
-                                    <h4 class="client_name">Sita Sharma</h4>
-                                    <div class="client_img">
-                                        <img src="~/images/girl1.jpeg" alt="Sita Sharma">
-                                    </div>
+                                    @foreach (var testimonial in Model.Testimonials)
+                                    {
+                                        <div class="carousel-item @(Model.Testimonials.First() == testimonial ? "active" : "")">
+                                            <p class="testimonial_text">@testimonial.Message</p>
+                                            <h4 class="client_name">@testimonial.ClientName</h4>
+                                            <div class="client_img">
+                                                <img src="@testimonial.ClientImage" alt="@testimonial.ClientName">
+                                            </div>
+                                        </div>
+                                    }
                                 </div>
-                                <div class="carousel-item">
-                                    <p class="testimonial_text">
-                                        "I love how Kurlstop products work for every hair type. My wavy hair now feels more nourished and manageable. Plus, their message of self-love and authenticity truly resonates with me!"
-                                    </p>
-                                    <h4 class="client_name">Anjali Thapa</h4>
-                                    <div class="client_img">
-                                        <img src="~/images/girl2.jpg" alt="Anjali Thapa">
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <p class="testimonial_text">
-                                        "Thank you, Kurlstop, for helping me love my natural hair! Your products not only work wonders but also make me feel confident and beautiful. Embracing my curls has never felt so empowering."
-                                    </p>
-                                    <h4 class="client_name">Nisha Gurung</h4>
-                                    <div class="client_img">
-                                        <img src="~/images/girl3.jpg" alt="Nisha Gurung">
-                                    </div>
-                                </div>
-                            </div>
                             <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
                                 <i class="fa fa-angle-left"></i>
                             </a>

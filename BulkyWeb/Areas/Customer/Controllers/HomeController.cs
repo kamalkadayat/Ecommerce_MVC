@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Security.Claims;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
+using Bulky.Models.ViewModels;
 using Bulky.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -31,8 +32,14 @@ namespace BulkyWeb.Areas.Customer.Controllers
             //        _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).Count());
             //}
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            IEnumerable<Testimonial> testimonialList = _unitOfWork.Testimonial.GetAll();
 
-            return View(productList);
+            var homeViewModel = new HomeVM
+            {
+                Products = productList,
+                Testimonials = testimonialList,
+            };
+            return View(homeViewModel);
         }
         public IActionResult Details(int productId)
         {
