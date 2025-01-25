@@ -39,7 +39,8 @@
         border-color: #e6b800;
         /* services section end */
         /* General Section Styles */
-        .testimonial_section {
+    }
+.testimonial_section {
     background-color: #f9f8f6;
     padding: 60px 0;
     font-family: 'Poppins', sans-serif;
