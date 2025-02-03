@@ -19,6 +19,7 @@ namespace Bulky.DataAccess.Repository
         public IOrderHeaderRepository OrderHeader { get; private set; }
         public IOrderDetailRepository OrderDetail { get; private set; }
         public ITestimonialRepository Testimonial { get; private set; }
+        public IBlogRepository Blog { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
@@ -30,6 +31,7 @@ namespace Bulky.DataAccess.Repository
             OrderHeader = new OrderHeaderRepository(_db);
             OrderDetail = new OrderDetailRepository(_db);
             Testimonial = new TestimonialRepository(_db);
+            Blog = new BlogRepository(_db);
         }
         public void Save()
         {
