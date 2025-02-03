@@ -94,6 +94,19 @@ namespace BulkyWeb.Areas.Customer.Controllers
         {
             return View();
         }
+        public IActionResult Products()
+        {
+            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            IEnumerable<Testimonial> testimonialList = _unitOfWork.Testimonial.GetAll();
+
+            var homeViewModel = new HomeVM
+            {
+                Products = productList,
+                Testimonials = testimonialList
+            };
+
+            return View(homeViewModel);
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
