@@ -1,10 +1,15 @@
 ﻿@model HomeVM
 
 @{
-    var culture = new System.Globalization.CultureInfo("en-US"); // Ensure correct currency format
+    var culture = new System.Globalization.CultureInfo("sd-Deva-NP"); // Ensure correct currency format
 }
 
 <div class="row pb-3">
+    <div class="row">
+        <div class="col-12 text-center mb-4 mt-4">
+            <h2 class="section-title text-uppercase text-dark opacity-75">All Products</h2>
+        </div>
+    </div>
     @if (Model?.Products == null || !Model.Products.Any()) // Check if Products are null or empty
     {
         <p class="text-center text-danger">No products available.</p>

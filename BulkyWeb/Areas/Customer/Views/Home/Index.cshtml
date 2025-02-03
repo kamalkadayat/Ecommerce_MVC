@@ -40,7 +40,7 @@
     </div>
 
     <div class="row pb-3">
-        @foreach(var product in Model.Products)
+        @foreach(var product in Model.Products.Take(4))
         {
             <div class="col-lg-3 col-sm-6">
                 <div class="row p-2 mb-4">
@@ -96,6 +96,12 @@
             </div>
         }
     </div>
+    <!-- "Shop More" Button -->
+    <div class="text-center mt-0 mb-4">
+        <a asp-controller="Home" asp-action="Products" class="btn btn-success text-white px-4 py-2 fs-5 fw-bold">
+            Shop More
+        </a>
+    </div>
     <!-- services section start -->
     <div class="services_section py-5 bg-light mb-4">
         <div class="container">
@@ -135,7 +141,9 @@
                 </div>
             </div>
           @*   <div class="text-center mt-4">
-                <a href="#" class="btn btn-warning text-white px-4 py-2 fs-5 fw-bold">Shop Now</a>
+                <a asp-controller="Home" asp-action="Products" class="btn btn-success text-white px-4 py-2 fs-5 fw-bold">
+                    Shop Now
+                </a>
             </div> *@
         </div>
     </div>
