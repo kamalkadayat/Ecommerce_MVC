@@ -33,11 +33,13 @@ namespace BulkyWeb.Areas.Customer.Controllers
             //}
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
             IEnumerable<Testimonial> testimonialList = _unitOfWork.Testimonial.GetAll();
+            IEnumerable<Blog> blogList = _unitOfWork.Blog.GetAll();
 
             var homeViewModel = new HomeVM
             {
                 Products = productList,
                 Testimonials = testimonialList,
+                Blogs = blogList
             };
             return View(homeViewModel);
         }

@@ -2,12 +2,11 @@
 @* @Html.Partial("_Carousel") *@
 
 
-    @{
-        ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Home Page";
     var culture = new System.Globalization.CultureInfo("sd-Deva-NP"); // Use "en-US" for USD
-    }
+}
 
-<link href="~/css/style.css" rel="stylesheet" />
 
 <div class="banner_section layout_padding mb-4">
     <div class="container">
@@ -50,7 +49,7 @@
                             <div class="pl-1">
                                 <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
                                 <p class="card-title text-warning text-center"> <b>@product.Category.Name</b></p>
-                              
+
                             </div>
                             <div class="mb-2">
                                 <p class="text-dark text-opacity-75 text-center mb-0">
@@ -59,13 +58,13 @@
                                     </span>
                                 </p>
                                 <p class="text-dark text-opacity-75 text-center mb-0 ">
-                                  
+
                                     <span>
                                         @product.Price.ToString("C", culture)
                                     </span>
                                 </p>
                             </div>
-                          @*   <div class="pl-1">
+                            @*   <div class="pl-1">
                                 <p class="text-dark text-opacity-75 text-center mb-0">
                                     List Price:
                                     <span class="text-decoration-line-through">
@@ -140,7 +139,7 @@
                     </div>
                 </div>
             </div>
-          @*   <div class="text-center mt-4">
+            @*   <div class="text-center mt-4">
                 <a asp-controller="Home" asp-action="Products" class="btn btn-success text-white px-4 py-2 fs-5 fw-bold">
                     Shop Now
                 </a>
@@ -148,6 +147,36 @@
         </div>
     </div>
     <!-- services section end -->
+
+    <div class="container blog-section">
+        <div class="row">
+            <div class="col-12 text-center mb-4 mt-2">
+                <h2 class="section-title text-uppercase text-dark opacity-75">Blog Post</h2>
+            </div>
+        </div>
+        <div class="row">
+            @if (Model?.Blogs != null && Model.Blogs.Any())
+            {
+                @foreach (var blog in Model.Blogs)
+                {
+                    <div class="col-md-4">
+                        <div class="blog-card">
+                            <img src="@blog.BlogImage" alt="Blog Image" class="blog-image">
+                            <div class="blog-card-body">
+                                <h5 class="blog-card-title">@blog.Title</h5>
+                                <p class="blog-card-text">@blog.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No blog posts available.</p>
+            }
+        </div>
+    </div>
+
     <!-- Testimonial Section start -->
 
 <div class="testimonial_section layout_padding mb-5">

@@ -1,0 +1,74 @@
+﻿@model Blog
+
+<div class="card shadow border-0 my-4" style="margin-bottom:70px !important;">
+    <div class="card-header bg-warning mt-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-primary">@(Model.Id != 0 ? "Update" : "Create") Blog</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row" enctype="multipart/form-data" novalidate="novalidate">
+            <div class="border p-3">
+                <div class="row">
+                    <!-- Client Name Input -->
+                    <div class="form-floating py-2 col-6">
+                        <input asp-for="Title" type="text" class="form-control border-0 shadow" />
+                        <label asp-for="Title" class="ms-2"></label>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <!-- Message Input -->
+                    <div class="form-floating py-2 col-6">
+                        <textarea asp-for="Description" class="form-control border-0 shadow"></textarea>
+                        <label asp-for="Description" class="ms-2"></label>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                  @*   <div class="form-floating py-2 col-6">
+                        <textarea asp-for="ClientImage" class="form-control border-0 shadow"></textarea>
+                        <label asp-for="ClientImage" class="ms-2"></label>
+                        <span asp-validation-for="ClientImage" class="text-danger"></span>
+                    </div> *@
+
+                    <!-- Image Upload -->
+                    <div class="col-6 py-2">
+                        <label asp-for="BlogImageFile" class="form-label">Upload Image</label>
+                        <input type="file" asp-for="BlogImageFile" class="form-control border-0 shadow" />
+                        <span asp-validation-for="BlogImageFile" class="text-danger"></span>
+                    </div>
+
+
+                    <!-- Image Preview -->
+                    <div class="col-6">
+                        @if (!string.IsNullOrEmpty(Model.BlogImage))
+                        {
+                            <img src="@Model.BlogImage" alt="Client Image" width="300px" height="300px" style="border-radius:8px; border:1px solid #bbb9b9;" />
+                        }
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="row mt-3">
+                        <div class="col-6 col-md-3">
+                            @if (Model.Id != 0)
+                            {
+                                <button type="submit" class="btn btn-success form-control">Update</button>
+                            }
+                            else
+                            {
+                                <button type="submit" class="btn btn-success form-control">Create</button>
+                            }
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <a asp-controller="Blog" asp-action="Index" class="btn btn-warning form-control">Go Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
