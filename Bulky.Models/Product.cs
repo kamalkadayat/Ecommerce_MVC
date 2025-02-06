@@ -19,8 +19,8 @@ namespace Bulky.Models
         [Required]
         public string ISBN { get; set; }
         [Required]
-        [Display(Name = "Type")]
-        public string Author { get; set; }
+        [Display(Name = "BrandName")]
+        public string Brand { get; set; }
         [Required]
         [Display(Name = "list Price")]
         [Range(1, 10000)]

@@ -10,7 +10,7 @@ $(document).ready(function () {
             { data: 'title' },
             /*  { data: 'description' },*/
             { data: 'isbn' },
-            { data: 'author' },
+            { data: 'brand' },
             { data: 'price' },
             { data: 'category.name' },
             {

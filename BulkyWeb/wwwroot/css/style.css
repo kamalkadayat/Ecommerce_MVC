@@ -185,3 +185,49 @@
     color: #666;
     line-height: 1.5;
 }
+
+/*Shop by category*/
+.hm-category-section {
+    padding:  0;
+    background: none;
+}
+
+.hm-page-category {
+    width: 90%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out;
+}
+
+    .hm-page-category:hover {
+        transform: scale(1.05);
+    }
+
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+@media (max-width: 1266px) {
+    .hm-category-section {
+        padding-top: 0px !important;
+    }
+}
+
+@media (max-width: 551px) {
+    .hm-category-section {
+        position: relative;
+        top: 14px;
+    }
+}
+
+@media (min-width: 1262px) {
+    #homepage-before-after {
+        margin-top: -25px;
+    }
+}

@@ -30,6 +30,75 @@
     </div>
 </div>
 
+
+<div id="shopify-section-homepage-shop-category-section" class="shopify-section">
+    <section id="homepage-before-after" class="hm-category-section mb-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="row">
+                    <div class="col-12 text-center mb-4 mt-4">
+                        <h2 class="section-title text-uppercase text-dark opacity-75">Shop By Category</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0 position-relative">
+                <div class="best-selling-product-hm col-6 col-md text-center">
+                    <div class="product-outer">
+                        <a asp-controller="Home" asp-action="Products">
+                            <img src="//fixmycurls.com/cdn/shop/files/Group_239_800x.png?v=1729873286"
+                                 alt="Shampoos & Conditioners"
+                                 class="hm-page-category">
+                        </a>
+                    </div>
+                </div>
+                <div class="best-selling-product-hm col-6 col-md text-center">
+                    <div class="product-outer">
+                        <a asp-controller="Home" asp-action="Products">
+                            <img src="//fixmycurls.com/cdn/shop/files/Group_240_800x.png?v=1729873286"
+                                 alt="Style Post Wash"
+                                 class="hm-page-category">
+                        </a>
+                    </div>
+                </div>
+                <div class="best-selling-product-hm col-6 col-md text-center">
+                    <div class="product-outer">
+                        <a asp-controller="Home" asp-action="Products">
+                            <img src="//fixmycurls.com/cdn/shop/files/Group_242_800x.png?v=1729873286"
+                                 alt="Bundles"
+                                 class="hm-page-category">
+                        </a>
+                    </div>
+                </div>
+                <div class="best-selling-product-hm col-6 col-md text-center">
+                    <div class="product-outer">
+                        <a asp-controller="Home" asp-action="Products">
+                            <img src="//fixmycurls.com/cdn/shop/files/Group_244_800x.png?v=1729873286"
+                                 alt="Accessories"
+                                 class="hm-page-category">
+                        </a>
+                    </div>
+                </div>
+                <div class="best-selling-product-hm col-6 col-md text-center">
+                    <div class="product-outer">
+                        <a asp-controller="Home" asp-action="Products" >
+                            <img src="//fixmycurls.com/cdn/shop/files/Group_245_800x.png?v=1729873286"
+                                 alt="Hair Mists"
+                                 class="hm-page-category">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+    </section>
+@*     <div class="row text-center">
+        <div class="text-center mt-0 mb-4">
+            <a asp-controller="Home" asp-action="Products" class="btn btn-success text-white px-4 py-2 fs-5 fw-bold">
+                Shop All
+            </a>
+        </div>
+    </div> *@
+</div>
 <div class="container mb-4">
     <!-- Section Title -->
     <div class="row">
@@ -219,3 +288,24 @@
 </div>
 <!-- Testimonial Section End -->
 
+<script>
+  function webengageOnReady(cb) {
+    if (typeof webengage === "undefined" || typeof webengage.onReady !== "function") {
+      setTimeout(function () {
+        webengageOnReady(cb);
+      }, 100);
+    } else {
+      webengage.onReady(cb);
+    }
+  }
+  
+  webengageOnReady(function () {
+    document.querySelectorAll('#homepage-before-after a').forEach(function (category) {
+      category.addEventListener('click', function () {
+        webengage.track("Category Clicked", {
+          "Category URL": category.getAttribute('href')
+        });
+      });
+    });
+  });
+</script>
