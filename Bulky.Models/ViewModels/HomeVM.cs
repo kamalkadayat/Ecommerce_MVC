@@ -12,5 +12,7 @@ namespace Bulky.Models.ViewModels
         public IEnumerable<Testimonial> Testimonials { get; set; }
 
         public IEnumerable<Blog> Blogs { get; set; }
+        public IEnumerable<Category> Categories { get; set; } 
+        public int? SelectedCategoryId { get; set; }
     }
 }

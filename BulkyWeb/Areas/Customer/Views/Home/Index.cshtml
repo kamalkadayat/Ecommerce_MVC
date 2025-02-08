@@ -44,7 +44,7 @@
             <div class="row g-0 position-relative">
                 <div class="best-selling-product-hm col-6 col-md text-center">
                     <div class="product-outer">
-                        <a asp-controller="Home" asp-action="Products">
+                        <a asp-controller="Home"  asp-action="Products" asp-route-categoryId="1">
                             <img src="//fixmycurls.com/cdn/shop/files/Group_239_800x.png?v=1729873286"
                                  alt="Shampoos & Conditioners"
                                  class="hm-page-category">
@@ -53,7 +53,7 @@
                 </div>
                 <div class="best-selling-product-hm col-6 col-md text-center">
                     <div class="product-outer">
-                        <a asp-controller="Home" asp-action="Products">
+                        <a asp-controller="Home" asp-action="Products" asp-route-categoryId="2">
                             <img src="//fixmycurls.com/cdn/shop/files/Group_240_800x.png?v=1729873286"
                                  alt="Style Post Wash"
                                  class="hm-page-category">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="best-selling-product-hm col-6 col-md text-center">
                     <div class="product-outer">
-                        <a asp-controller="Home" asp-action="Products">
+                        <a asp-controller="Home" asp-action="Products" asp-route-categoryId="10">
                             <img src="//fixmycurls.com/cdn/shop/files/Group_242_800x.png?v=1729873286"
                                  alt="Bundles"
                                  class="hm-page-category">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="best-selling-product-hm col-6 col-md text-center">
                     <div class="product-outer">
-                        <a asp-controller="Home" asp-action="Products">
+                        <a asp-controller="Home" asp-action="Products" asp-route-categoryId="8">
                             <img src="//fixmycurls.com/cdn/shop/files/Group_244_800x.png?v=1729873286"
                                  alt="Accessories"
                                  class="hm-page-category">
@@ -80,9 +80,18 @@
                 </div>
                 <div class="best-selling-product-hm col-6 col-md text-center">
                     <div class="product-outer">
-                        <a asp-controller="Home" asp-action="Products" >
+                        <a asp-controller="Home" asp-action="Products" asp-route-categoryId="9">
                             <img src="//fixmycurls.com/cdn/shop/files/Group_245_800x.png?v=1729873286"
                                  alt="Hair Mists"
+                                 class="hm-page-category">
+                        </a>
+                    </div>
+                </div>
+                <div class="best-selling-product-hm col-6 col-md text-center">
+                    <div class="product-outer">
+                        <a asp-controller="Home" asp-action="Products" asp-route-categoryId="3">
+                            <img src="//fixmycurls.com/cdn/shop/files/Group_243_800x.png?v=1729873286"
+                                 alt="Hair Masks"
                                  class="hm-page-category">
                         </a>
                     </div>
@@ -116,7 +125,7 @@
                         <img src="@product.ImageUrl" class="card-img-top rounded"/>
                         <div class="card-body pb-0">
                             <div class="pl-1">
-                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@product.Title</p>
+                                <p class="card-title h5 text-dark opacity-75  text-center">@product.Title</p>
                                 <p class="card-title text-warning text-center"> <b>@product.Category.Name</b></p>
 
                             </div>
@@ -246,9 +255,10 @@
         </div>
     </div>
 
+
     <!-- Testimonial Section start -->
 
-<div class="testimonial_section layout_padding mb-5">
+<div class="testimonial_section layout_padding mb-2">
     <div class="container">
         <div class="row">
                 <div class="col-md-12  text-center mb-2 ">
@@ -288,6 +298,73 @@
 </div>
 <!-- Testimonial Section End -->
 
+<!-- Extra Info Section Start -->
+<section id="extra-info" class="kurlstop-faq">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                DELIVERY
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>When will my order ship?</li>
+                                    <p>Orders ship within 24-48 hours, with delivery taking 2-3 working days based on your location.</p>
+                                    <li>How fast is Free Shipping?</li>
+                                    <p>Shipping takes approximately 2-3 working days depending on location.</p>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                PAYMENT
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>What forms of payment do you accept?</li>
+                                    <p>We accept E-Sewa, cards, Mobile Banking, Khalti</p>
+                                    <li>What if my payment is deducted but I don’t receive a confirmation?</li>
+                                    <p>Please contact us at customercare@kurlstop.com with a payment screenshot for assistance.</p>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                SHIPPING
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li>Do you ship All Over Nepal?</li>
+                                    <p>Yes! Our exports team calculates shipping costs based on your order’s weight and dimensions.</p>
+                                    <li>How can I update or cancel my order?</li>
+                                    <p>Orders can be canceled before dispatch. Email us at contact@kurlstop.com for assistance.</p>
+                                    <li>What if I receive a damaged product?</li>
+                                    <p>Email us at contact@kurlstop.com within 24 hours, and we will resolve the issue promptly.</p>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Extra Info Section End -->
 <script>
   function webengageOnReady(cb) {
     if (typeof webengage === "undefined" || typeof webengage.onReady !== "function") {

@@ -1,62 +1,76 @@
 ﻿@model HomeVM
 
 @{
-    var culture = new System.Globalization.CultureInfo("sd-Deva-NP"); // Ensure correct currency format
+    var culture = new System.Globalization.CultureInfo("sd-Deva-NP");
 }
 
 <div class="row pb-3">
-    <div class="row">
-        <div class="col-12 text-center mb-4 mt-4">
-            <h2 class="section-title text-uppercase text-dark opacity-75">All Products</h2>
+    <!-- Sidebar for Category Selection -->
+    <div class="col-md-12">
+        <div class="list-group">
+            <a asp-action="Products" class="list-group-item list-group-item-action @(Model.SelectedCategoryId == null ? "active" : "")">
+                All Products
+            </a>
+            @foreach (var category in Model.Categories)
+            {
+                <a asp-action="Products" asp-route-categoryId="@category.Id"
+                   class="list-group-item list-group-item-action @(Model.SelectedCategoryId == category.Id ? "active" : "")">
+                    @category.Name
+                </a>
+            }
         </div>
     </div>
-    @if (Model?.Products == null || !Model.Products.Any()) // Check if Products are null or empty
-    {
-        <p class="text-center text-danger">No products available.</p>
-    }
-    else
-    {
-        @foreach (var product in Model.Products)
+
+    <!-- Products Section -->
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-12 text-center mb-4 mt-4">
+                <h2 class="section-title text-uppercase text-dark opacity-75">
+                    @(Model.SelectedCategoryId == null ? "All Products" : Model.Categories.FirstOrDefault(c => c.Id == Model.SelectedCategoryId)?.Name)
+                </h2>
+            </div>
+        </div>
+
+        @if (Model?.Products == null || !Model.Products.Any())
         {
-            <div class="col-lg-3 col-sm-6">
-                <div class="row p-2 mb-4">
-                    <div class="card border-0 p-3 shadow border-top border-5 rounded">
-                        <img src="@Url.Content("~/" + product.ImageUrl)" class="card-img-top rounded" asp-append-version="true" />
+            <p class="text-center text-danger">No products available.</p>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card border-0 p-3 shadow border-top border-5 rounded w-100 d-flex flex-column">
+                            <img src="@Url.Content("~/" + product.ImageUrl)" class="card-img-top rounded" asp-append-version="true"  />
 
-
-
-                        <div class="card-body pb-0">
-                            <div class="pl-1">
-                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">
+                            <div class="card-body pb-0 d-flex flex-column flex-grow-1">
+                                <p class="card-title h5 text-dark opacity-75  text-center">
                                     @(product.Title ?? "No Title")
                                 </p>
                                 <p class="card-title text-warning text-center">
                                     <b>@(product.Category?.Name ?? "No Category")</b>
                                 </p>
-                            </div>
-                            <div class="mb-2">
-                                <p class="text-dark text-opacity-75 text-center mb-0">
-                                    <span class="text-decoration-line-through">
+                                <div class="mb-2 text-center">
+                                    <span class="text-decoration-line-through text-muted">
                                         @(product.ListPrice.ToString("C", culture) ?? "N/A")
                                     </span>
-                                </p>
-                                <p class="text-dark text-opacity-75 text-center mb-0">
-                                    <span>
+                                    <span class="fw-bold">
                                         @(product.Price.ToString("C", culture) ?? "N/A")
                                     </span>
-                                </p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <a asp-action="Details" asp-route-productId="@product.Id"
+                                   class="btn btn-primary bg-warning form-control">
+                                    Details
+                                </a>
                             </div>
                         </div>
-                        <div>
-                            <a asp-action="Details"
-                               asp-route-productId="@product.Id"
-                               class="btn btn-primary bg-warning border-0 form-control">
-                                Details
-                            </a>
-                        </div>
                     </div>
-                </div>
+                }
             </div>
         }
-    }
+    </div>
 </div>

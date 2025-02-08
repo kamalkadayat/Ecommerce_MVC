@@ -34,7 +34,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
             IEnumerable<Testimonial> testimonialList = _unitOfWork.Testimonial.GetAll();
             IEnumerable<Blog> blogList = _unitOfWork.Blog.GetAll();
-
+            IEnumerable<Category> categories = _unitOfWork.Category.GetAll();
             var homeViewModel = new HomeVM
             {
                 Products = productList,
@@ -96,14 +96,42 @@ namespace BulkyWeb.Areas.Customer.Controllers
         {
             return View();
         }
-        public IActionResult Products()
+        //public IActionResult Products()
+        //{
+        //    IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+        //    IEnumerable<Testimonial> testimonialList = _unitOfWork.Testimonial.GetAll();
+
+        //    var homeViewModel = new HomeVM
+        //    {
+        //        Products = productList,
+        //        Testimonials = testimonialList
+        //    };
+
+        //    return View(homeViewModel);
+        //}
+
+
+        public IActionResult Products(int? categoryId)
         {
-            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            IEnumerable<Product> productList;
+
+            if(categoryId.HasValue)
+            {
+                productList = _unitOfWork.Product.GetAll(p => p.CategoryId == categoryId, includeProperties: "Category");
+
+            }
+            else
+            {
+                productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            }
             IEnumerable<Testimonial> testimonialList = _unitOfWork.Testimonial.GetAll();
+            IEnumerable<Category> categories = _unitOfWork.Category.GetAll();
 
             var homeViewModel = new HomeVM
             {
                 Products = productList,
+                Categories = categories,
+                SelectedCategoryId= categoryId,
                 Testimonials = testimonialList
             };
 

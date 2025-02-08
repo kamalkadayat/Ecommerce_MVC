@@ -41,7 +41,7 @@
         /* General Section Styles */
     }
 .testimonial_section {
-    background-color: #f9f8f6;
+    background-color: none;
     padding: 60px 0;
     font-family: 'Poppins', sans-serif;
 }
@@ -231,3 +231,33 @@
         margin-top: -25px;
     }
 }
+
+/*extra info*/
+.kurlstop-faq {
+    padding: 10px 0;
+    background: none;
+}
+
+.accordion-button {
+    background-color: #FFEEDB;
+    color: #000;
+    font-weight: bold;
+}
+
+    .accordion-button:not(.collapsed) {
+        background-color: #e89b72;
+    }
+
+.accordion-body {
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+    ul li {
+        font-weight: bold;
+    }
