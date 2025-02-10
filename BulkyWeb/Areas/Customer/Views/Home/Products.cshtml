@@ -41,23 +41,25 @@
                 @foreach (var product in Model.Products)
                 {
                     <div class="col-lg-3 col-sm-6">
-                        <div class="card border-0 p-3 shadow border-top border-5 rounded w-100 d-flex flex-column">
+                        <div class="card border-0 p-3 shadow border-top border-5 rounded w-100 d-flex flex-column mb-4">
                             <img src="@Url.Content("~/" + product.ImageUrl)" class="card-img-top rounded" asp-append-version="true"  />
 
                             <div class="card-body pb-0 d-flex flex-column flex-grow-1">
-                                <p class="card-title h5 text-dark opacity-75  text-center">
+                                <p class="card-title  text-dark opacity-75  text-center">
                                     @(product.Title ?? "No Title")
                                 </p>
                                 <p class="card-title text-warning text-center">
                                     <b>@(product.Category?.Name ?? "No Category")</b>
                                 </p>
                                 <div class="mb-2 text-center">
-                                    <span class="text-decoration-line-through text-muted">
-                                        @(product.ListPrice.ToString("C", culture) ?? "N/A")
-                                    </span>
-                                    <span class="fw-bold">
-                                        @(product.Price.ToString("C", culture) ?? "N/A")
-                                    </span>
+                                    <p class="text-dark text-opacity-75 text-center mb-0">
+                                        <span class="text-decoration-line-through">
+                                            @product.ListPrice.ToString("C", culture)
+                                        </span>
+                                    </p>
+                                    <p class="text-dark text-opacity-75 text-center mb-2">
+                                        <span>@product.Price.ToString("C", culture)</span>
+                                    </p>
                                 </div>
                             </div>
 
