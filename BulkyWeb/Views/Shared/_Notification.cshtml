@@ -1,20 +1,30 @@
 ﻿@if (TempData["success"] != null)
 {
-  @*   <script src="~/lib/jquery/dist/jquery.js"></script>
-    <srcipt src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></srcipt>
+ @*    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <srcipt src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></srcipt> *@
+    <!-- jQuery (Required for Toastr) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script type="text/javascript">
         toastr.success('@TempData["success"]');
-    </script> *@
+    </script>
 
-    <p class="text-success">@TempData["success"]</p>
+@*     <p class="text-success">@TempData["success"]</p> *@
 }
 @if (TempData["error"] != null)
 {
-   @*  <script src="~/lib/jquery/dist/jquery.js"></script>
-    <srcipt src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></srcipt>
+ @*    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <srcipt src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></srcipt> *@
+    <!-- jQuery (Required for Toastr) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script type="text/javascript">
         toastr.error('@TempData["success"]');
-    </script> *@
-    <p>@TempData["error"]</p>
+    </script>
+  @*   <p>@TempData["error"]</p> *@
 }
 
