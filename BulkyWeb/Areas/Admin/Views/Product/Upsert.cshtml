@@ -124,6 +124,21 @@
           ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
         });
     </script> *@
+    <script>
+        $(document).ready(function () {
+            tinymce.remove(".tinymce");
+            tinymce.init({
+                selector: 'textarea',
+                height: 300,
+                plugins: [
+                    'advlist lists charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime table contextmenu paste code'
+                ],
+                toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+            });
+        });
+    </script>
     @{
         <partial name="_ValidationScriptsPartial"/>
     }

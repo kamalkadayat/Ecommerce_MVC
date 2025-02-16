@@ -9,7 +9,11 @@ $(document).ready(function () {
         "columns": [
             { data: 'title' },
               { data: 'description' },
-            { data: 'blogImage' },
+            {
+                data: 'blogImage',
+                "render": function (data) {
+                    return `<img src="${data}" alt="Blog Image" width="100" height="auto" />`;
+                }            },
             {
                 data: 'id',
                 "render": function (data) {

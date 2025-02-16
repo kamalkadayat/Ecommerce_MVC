@@ -7,10 +7,15 @@ $(document).ready(function () {
             dataSrc: 'data'
         },
         "columns": [
-            { data: 'message' },
-            /*  { data: 'description' },*/
             { data: 'clientName' },
-            { data: 'clientImage' },
+            { data: 'message' },
+          
+            {
+                data: 'clientImage',
+                "render": function (data) {
+                    return `<img src="${data}" alt="Client Image" width="100" height="auto" />`;
+                }
+            },
             {
                 data: 'id',
                 "render": function (data) {
@@ -22,6 +27,12 @@ $(document).ready(function () {
                 }
             }
 
+        ],
+        "columnDefs": [
+            { "width": "20%", "targets": 0 }, 
+            { "width": "45%", "targets": 1 }, 
+            { "width": "15%", "targets": 2 },
+            { "width": "20%", "targets": 3 } 
         ]
     });
 });
