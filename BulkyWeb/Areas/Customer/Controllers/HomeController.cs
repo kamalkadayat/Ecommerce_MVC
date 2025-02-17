@@ -24,14 +24,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
 
         public IActionResult Index()
         {
-            //var claimsIdentity = (ClaimsIdentity)User.Identity;
-            //var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
-            //if(claim != null)
-            //{
-            //    HttpContext.Session.SetInt32(SD.SessionCart,
-            //        _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == claim.Value).Count());
-            //}
-            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+            IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "Category,ProductImages");
             IEnumerable<Testimonial> testimonialList = _unitOfWork.Testimonial.GetAll();
             IEnumerable<Blog> blogList = _unitOfWork.Blog.GetAll();
             IEnumerable<Category> categories = _unitOfWork.Category.GetAll();
@@ -47,7 +40,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
         {
             ShoppingCart cart = new()
             {
-                Product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category"),
+                Product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category,ProductImages"),
                 Count = 1,
                 ProductId = productId
             };
@@ -117,12 +110,12 @@ namespace BulkyWeb.Areas.Customer.Controllers
 
             if(categoryId.HasValue)
             {
-                productList = _unitOfWork.Product.GetAll(p => p.CategoryId == categoryId, includeProperties: "Category");
+                productList = _unitOfWork.Product.GetAll(p => p.CategoryId == categoryId, includeProperties: "Category,ProductImages");
 
             }
             else
             {
-                productList = _unitOfWork.Product.GetAll(includeProperties: "Category");
+                productList = _unitOfWork.Product.GetAll(includeProperties: "Category,ProductImages");
             }
             IEnumerable<Testimonial> testimonialList = _unitOfWork.Testimonial.GetAll();
             IEnumerable<Category> categories = _unitOfWork.Category.GetAll();

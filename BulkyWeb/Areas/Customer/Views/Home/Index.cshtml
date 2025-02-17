@@ -162,7 +162,13 @@
         {
             <div class="col-lg-3 col-sm-6 d-flex mb-4">
                 <div class="card border-0 shadow border-top border-5 rounded h-100 d-flex flex-column w-100 p-3 ">
-                    <img src="@product.ImageUrl" class="card-img-top rounded" style=" object-fit: cover;" />
+                @if(product.ProductImages !=null && product.ProductImages.Count()>0){
+                    <img src="@product.ProductImages.FirstOrDefault().ImageUrl" class="card-img-top" />
+                }
+                else{
+                     <img src="~/images/Image-not-found.png" class="card-img-top rounded" style=" object-fit: cover;" /> 
+                }
+
                     <div class="card-body d-flex flex-column flex-grow-1">
                         <p class="card-title text-dark opacity-75 text-center">@product.Title</p>
                         <p class="card-title text-warning text-center"><b>@product.Category.Name</b></p>

@@ -18,6 +18,7 @@ namespace Bulky.DataAccess.Repository.IRepository
 
         ITestimonialRepository Testimonial { get; }
         IBlogRepository Blog { get; }
+        IProductImageRepository ProductImage { get; }
 
         void Save();
     }

@@ -20,6 +20,7 @@ namespace Bulky.DataAccess.Repository
         public IOrderDetailRepository OrderDetail { get; private set; }
         public ITestimonialRepository Testimonial { get; private set; }
         public IBlogRepository Blog { get; private set; }
+        public IProductImageRepository ProductImage { get; private set; }
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
@@ -32,6 +33,7 @@ namespace Bulky.DataAccess.Repository
             OrderDetail = new OrderDetailRepository(_db);
             Testimonial = new TestimonialRepository(_db);
             Blog = new BlogRepository(_db);
+            ProductImage = new ProductImageRepository(_db);
         }
         public void Save()
         {
